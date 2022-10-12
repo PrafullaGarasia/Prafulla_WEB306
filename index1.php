@@ -1,5 +1,5 @@
 <?php
-require_once('includes/bootstrap.php');
+require_once ('includes/bootstrap.php');
 require_once('header.php');
 
 $sql = "SELECT entries.*, categories.cat FROM entries,categories WHERE entries.cat_id=categories.id ORDER BY date DESC LIMIT 6;";
