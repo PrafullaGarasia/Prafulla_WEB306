@@ -1,9 +1,9 @@
 <?php
-// session_start();
 require_once('includes/bootstrap.php');
-//require_once('header.php');
-// require_once('config.php'); No LONGER NEEDED
-$db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('Could not connect to database');
+
+
+//require_once('config.php');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@ $db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('Could not c
 		<li><a href="viewcat.php">categories</a></li>
 		<li>
 			<?php
-			if(!$session->isLoggedIn()) {
+            if(!$session->isLoggedIn()){
 				echo "<a href='logout.php'>log out</a>";
 			} else {
 				echo "<a href='login.php'>log in</a>";
@@ -27,7 +27,7 @@ $db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('Could not c
 			?>
 		</li>
 		<?php
-		if(!$session->isLoggedIn()) {
+        if(!$session->isLoggedIn()){
 			echo "<li><a href='addentry.php'>add entry</a></li>";
 			echo "<li><a href='addcat.php'>add category</a></li>";
 		}

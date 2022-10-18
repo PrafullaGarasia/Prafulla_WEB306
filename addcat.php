@@ -1,20 +1,15 @@
 <?php
 require_once('includes/bootstrap.php');
 require_once('header.php');
-// require_once('config.php'); No LONGER NEEDED
+// require_once('config.php');
 
-// if(!isset($_SESSION['USERNAME'])) {
-// 	header("Location: index1.php");
-// }
 if(!$session->isLoggedIn()){
-	header("Location: index1.php");
+    header("Location: index1.php");
 }
 
 if(isset($_POST['submit'])) {
-	$sql = "INSERT INTO categories (cat) VALUES('" . $_POST['cat'] . "')";
-	mysqli_query($db, $sql);
-	mysqli_close($db);
-
+	$category = new Category(0, $_POST['cat']);
+    $category->create();
 	header("Location: viewcat.php");
 } else {
 	?>
